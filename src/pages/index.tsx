@@ -1,3 +1,3 @@
-export default function Home() {
-  return <h1>G-Finance</h1>;
+export default function Login() {
+  return <h1>G-Finance</h1>
 }
