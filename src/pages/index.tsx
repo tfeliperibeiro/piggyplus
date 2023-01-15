@@ -1,3 +1,33 @@
+import { useRouter } from 'next/router'
+
+import { ArrowForwardIcon } from '@chakra-ui/icons'
+import { Flex, Text, Button } from '@chakra-ui/react'
+
 export default function Home() {
-  return <h1>G-Finance</h1>;
+  const router = useRouter()
+  return (
+    <Flex
+      flexDir="column"
+      maxW="sm"
+      margin="0 auto"
+      justify="center"
+      align="center"
+      w="full"
+      height="100vh"
+      p={[4, 0]}
+    >
+      <Text fontSize="2xl">Página Home em construção...</Text>
+      <Button
+        bg="pink.400"
+        color="whiteAlpha.900"
+        width="full"
+        mt="8"
+        _hover={{ bg: 'pink.500' }}
+        rightIcon={<ArrowForwardIcon />}
+        onClick={() => router.push('/login')}
+      >
+        Ir para Login
+      </Button>
+    </Flex>
+  )
 }
