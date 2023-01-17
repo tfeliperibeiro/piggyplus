@@ -18,11 +18,11 @@ export default function Home() {
     >
       <Text fontSize="2xl">Página Home em construção...</Text>
       <Button
-        bg="pink.400"
+        bgGradient="linear(to-r, cyan.500, green.200)"
         color="whiteAlpha.900"
         width="full"
         mt="8"
-        _hover={{ bg: 'pink.500' }}
+        _hover={{ bgGradient: 'linear(to-r, green.200, cyan.500)' }}
         rightIcon={<ArrowForwardIcon />}
         onClick={() => router.push('/login')}
       >

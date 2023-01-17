@@ -10,59 +10,61 @@ export const FormRegistration = () => {
     <FormControl
       p={7}
       bg="whiteAlpha.900"
-      boxShadow="sm"
+      boxShadow="md"
       rounded="lg"
       maxW="sm"
     >
       <ArrowBackIcon
-        color="pink.400"
+        color="cyan.500"
         fontSize="2xl"
         mb="8"
         cursor="pointer"
         onClick={() => router.back()}
       />
       <Stack spacing={4}>
-        <FormLabel color="gray.300" htmlFor="email" margin="0">
+        <FormLabel color="gray.400" htmlFor="name" margin="0">
           Nome
         </FormLabel>
         <Input
-          id="email"
-          type="email"
+          id="name"
+          type="text"
           placeholder="Digite seu nome"
-          focusBorderColor="pink.400"
+          focusBorderColor="cyan.500"
         />
-        <FormLabel color="gray.300" htmlFor="email">
+        <FormLabel color="gray.400" htmlFor="email">
           Email
         </FormLabel>
         <Input
           id="email"
           type="email"
           placeholder="Digite seu e-mail"
-          focusBorderColor="pink.400"
+          focusBorderColor="cyan.500"
         />
-        <FormLabel color="gray.300" htmlFor="password">
+        <FormLabel color="gray.400" htmlFor="password">
           Senha
         </FormLabel>
         <PasswordInput
           id="password"
-          placeholder="Digite sua senha"
-          focusBorderColor="pink.400"
+          placeholder="Digite sua nova senha"
+          focusBorderColor="cyan.500"
         />
-        <FormLabel color="gray.300" htmlFor="password">
+        <FormLabel color="gray.400" htmlFor="confirm-password">
           Confirmar senha
         </FormLabel>
         <PasswordInput
-          id="password"
-          placeholder="Confirme sua senha"
-          focusBorderColor="pink.400"
+          id="confirm-password"
+          placeholder="Confirme sua nova senha"
+          focusBorderColor="cyan.500"
         />
       </Stack>
       <Button
-        bg="pink.400"
+        bgGradient="linear(to-r, cyan.500, green.200)"
         color="whiteAlpha.900"
         width="full"
         mt="8"
-        _hover={{ bg: 'pink.500' }}
+        _hover={{
+          bgGradient: 'linear(to-r, cyan.600, green.300)',
+        }}
         rightIcon={<ArrowForwardIcon />}
       >
         Cadastrar
