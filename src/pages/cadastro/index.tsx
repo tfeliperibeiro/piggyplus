@@ -1,10 +1,8 @@
-import Image from 'next/image'
-import { Flex, Text } from '@chakra-ui/react'
+import { Flex } from '@chakra-ui/react'
 
 import { Layout } from '@/components/Layouts/LoginAndRegistration'
 import { FormRegistration } from '@/components/Pages/Registration/FormRegistration'
-
-import LogoPiggy from '../../../public/assets/logo-piggy.svg'
+import { Logo } from '@/components/Logo'
 
 export default function Register() {
   return (
@@ -17,13 +15,7 @@ export default function Register() {
           mb="4"
           gap={['8']}
         >
-          <Text fontSize="4xl" color="pink.400" fontWeight="extrabold">
-            Piggy
-            <Text fontSize="5xl" as="span">
-              +
-            </Text>
-          </Text>
-          <Image src={LogoPiggy} alt="Logo Piggy Plus" />
+          <Logo />
         </Flex>
         <FormRegistration />
       </>

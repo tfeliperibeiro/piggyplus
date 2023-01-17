@@ -20,42 +20,45 @@ export const FormLogin = () => {
     <FormControl
       p={7}
       bg="whiteAlpha.900"
-      boxShadow="sm"
+      boxShadow="md"
       rounded="lg"
       maxW="sm"
     >
       <Stack spacing={4}>
-        <FormLabel color="gray.300" htmlFor="email" margin="0">
+        <FormLabel color="gray.400" htmlFor="email" margin="0">
           Email
         </FormLabel>
         <Input
           id="email"
           type="email"
           placeholder="Digite seu e-mail"
-          focusBorderColor="pink.400"
+          focusBorderColor="cyan.500"
         />
-        <FormLabel color="gray.300" htmlFor="password">
+        <FormLabel color="gray.400" htmlFor="password">
           Senha
         </FormLabel>
         <PasswordInput
           id="password"
-          placeholder="Digite seu e-mail"
-          focusBorderColor="pink.400"
+          placeholder="Digite sua senha"
+          focusBorderColor="cyan.500"
         />
       </Stack>
       <Button
-        bg="pink.400"
+        bgGradient="linear(to-r, cyan.500, green.200)"
         color="whiteAlpha.900"
         width="full"
+        transition="ease 0.3s"
         mt="8"
-        _hover={{ bg: 'pink.500' }}
+        _hover={{
+          bgGradient: 'linear(to-r, cyan.600, green.300)',
+        }}
         rightIcon={<ArrowForwardIcon />}
       >
         Entrar
       </Button>
       <Flex justifyContent="center" mt="8" gap="2">
         <Text color="gray.500">Não tem uma conta ?</Text>
-        <Link onClick={() => router.push('/cadastro')} color="pink.400">
+        <Link onClick={() => router.push('/cadastro')} color="cyan.500">
           Cadastre-se
         </Link>
       </Flex>
