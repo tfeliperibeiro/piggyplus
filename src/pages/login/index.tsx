@@ -1,4 +1,4 @@
-import { Flex, Text } from '@chakra-ui/react'
+import { Box, Flex, Text } from '@chakra-ui/react'
 
 import { Header } from '@/components/Header'
 import { TabAuth } from '@/components/TabAuth'
@@ -19,7 +19,9 @@ export default function Login() {
             </Text>
             organizar suas finanças.
           </Text>
-          <Image src={FinanceImage} alt="teste" width={400} />
+          <Box>
+            <Image src={FinanceImage} alt="teste" width={400} />
+          </Box>
         </Flex>
         <TabAuth />
       </Flex>

@@ -9,8 +9,8 @@ import {
   Tabs,
 } from '@chakra-ui/react'
 
-import { FormLogin } from '../Form/Login/FormLogin'
-import { FormRegistration } from '../Form/Registration/FormRegistration'
+import { FormLogin } from '../Form/FormLogin'
+import { FormRegistration } from '../Form/FormRegistration'
 
 import { FcGoogle } from 'react-icons/fc'
 

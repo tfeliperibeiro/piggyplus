@@ -1,13 +1,22 @@
 import { FormControl, FormLabel, Input, Stack, Button } from '@chakra-ui/react'
 
 import { ArrowForwardIcon } from '@chakra-ui/icons'
-import { PasswordInput } from '../../PasswordInput'
+import { PasswordInput } from '../PasswordInput'
 
-export const FormLogin = () => {
+export const FormRegistration = () => {
   return (
     <FormControl>
       <Stack>
-        <FormLabel color="gray.400" htmlFor="email" margin="0">
+        <FormLabel color="gray.400" htmlFor="name" margin="0">
+          Nome
+        </FormLabel>
+        <Input
+          id="name"
+          type="text"
+          placeholder="Digite seu nome"
+          focusBorderColor="purple.500"
+        />
+        <FormLabel color="gray.400" htmlFor="email">
           Email
         </FormLabel>
         <Input
@@ -29,14 +38,13 @@ export const FormLogin = () => {
         bgGradient="linear(to-r, purple.500, purple.800)"
         color="whiteAlpha.900"
         width="full"
-        transition="ease 0.3s"
         mt="8"
         _hover={{
           bgGradient: 'linear(to-r, purple.400, purple.700)',
         }}
         rightIcon={<ArrowForwardIcon />}
       >
-        Entrar
+        Cadastrar
       </Button>
     </FormControl>
   )
