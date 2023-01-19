@@ -30,7 +30,7 @@ export const TabAuth = () => {
       </TabList>
       <TabPanels>
         <TabPanel>
-          <ScaleFade in={true} initialScale={0.9}>
+          <ScaleFade in initialScale={0.9}>
             <Flex align="center" w="full" justify="center" mt="8" mb="8">
               <Button
                 leftIcon={<FcGoogle size="1.4rem" />}
@@ -46,7 +46,7 @@ export const TabAuth = () => {
           </ScaleFade>
         </TabPanel>
         <TabPanel>
-          <ScaleFade in={true} initialScale={0.9}>
+          <ScaleFade in initialScale={0.9}>
             <Flex align="center" w="full" justify="center" mt="8" mb="8">
               <Button
                 leftIcon={<FcGoogle size="1.4rem" />}
