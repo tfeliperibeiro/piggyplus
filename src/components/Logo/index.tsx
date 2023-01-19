@@ -4,11 +4,11 @@ export const Logo = () => {
   return (
     <Text
       sx={{
-        backgroundImage: 'linear-gradient(to right, #00B5D8, #9AE6B4)',
+        backgroundImage: 'linear-gradient(to right, #805AD5, #44337A)',
         backgroundClip: 'text',
       }}
+      align="center"
       fontSize="4xl"
-      color="teal.500"
       fontWeight="extrabold"
     >
       Piggy
