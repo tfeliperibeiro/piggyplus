@@ -20,9 +20,9 @@ export const PasswordInput = (props: InputProps) => {
           bg="none"
           rightIcon={
             show ? (
-              <ViewIcon color="cyan.500" fontSize="xl" />
+              <ViewIcon color="purple.500" fontSize="xl" />
             ) : (
-              <ViewOffIcon color="cyan.500" fontSize="xl" />
+              <ViewOffIcon color="purple.500" fontSize="xl" />
             )
           }
           iconSpacing={0}
