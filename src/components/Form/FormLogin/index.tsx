@@ -1,43 +1,71 @@
-import { FormControl, FormLabel, Input, Stack, Button } from '@chakra-ui/react'
+import {
+  FormControl,
+  FormLabel,
+  Input,
+  Stack,
+  FormErrorMessage,
+} from '@chakra-ui/react'
+import { yupResolver } from '@hookform/resolvers/yup'
 
-import { ArrowForwardIcon } from '@chakra-ui/icons'
+import { useForm } from 'react-hook-form'
+
+import { loginFormSchema } from '@/schemas/loginForm'
+import { LoginFormInputsType } from '@/types/loginForm'
+
 import { PasswordInput } from '../PasswordInput'
+import { ButtonAuth } from '../ButtonAuth'
 
 export const FormLogin = () => {
+  const {
+    register,
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm<LoginFormInputsType>({
+    resolver: yupResolver(loginFormSchema),
+  })
+
+  const onSubmit = (data: LoginFormInputsType) => {
+    console.log(data)
+  }
+
   return (
-    <FormControl>
-      <Stack>
-        <FormLabel color="gray.400" htmlFor="email" margin="0">
-          Email
-        </FormLabel>
-        <Input
-          id="email"
-          type="email"
-          placeholder="Digite seu e-mail"
-          focusBorderColor="purple.500"
-        />
-        <FormLabel color="gray.400" htmlFor="password">
-          Senha
-        </FormLabel>
-        <PasswordInput
-          id="password"
-          placeholder="Digite sua senha"
-          focusBorderColor="purple.500"
-        />
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Stack spacing={4}>
+        <FormControl isInvalid={!!errors.email}>
+          <FormLabel color="gray.400" htmlFor="email">
+            Email
+          </FormLabel>
+          <Input
+            {...register('email')}
+            id="email"
+            autoComplete="current-email"
+            placeholder="Digite seu e-mail"
+            focusBorderColor="purple.500"
+            errorBorderColor="red.300"
+          />
+          <FormErrorMessage color="red.300">
+            {errors.email && errors.email.message}
+          </FormErrorMessage>
+        </FormControl>
+        <FormControl isInvalid={!!errors.password}>
+          <FormLabel color="gray.400" htmlFor="password">
+            Senha
+          </FormLabel>
+          <PasswordInput
+            id="password"
+            placeholder="Digite sua senha"
+            focusBorderColor="purple.500"
+            errorBorderColor="red.300"
+            control={control}
+          />
+
+          <FormErrorMessage color="red.300">
+            {errors.password && errors.password.message}
+          </FormErrorMessage>
+        </FormControl>
       </Stack>
-      <Button
-        bgGradient="linear(to-r, purple.500, purple.800)"
-        color="whiteAlpha.900"
-        width="full"
-        transition="ease 0.3s"
-        mt="8"
-        _hover={{
-          bgGradient: 'linear(to-r, purple.400, purple.700)',
-        }}
-        rightIcon={<ArrowForwardIcon />}
-      >
-        Entrar
-      </Button>
-    </FormControl>
+      <ButtonAuth text="Entrar" />
+    </form>
   )
 }

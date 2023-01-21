@@ -8,28 +8,55 @@ import {
 
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
 import { useState } from 'react'
+import { Controller } from 'react-hook-form'
 
-export const PasswordInput = (props: InputProps) => {
+type PasswordInputProps = InputProps & {
+  control: any
+}
+
+export const PasswordInput = ({ control, ...rest }: PasswordInputProps) => {
   const [show, setShow] = useState<boolean>(false)
 
   return (
-    <InputGroup>
-      <Input type={show ? 'email' : 'password'} {...props} />
-      <InputRightElement>
-        <Button
-          bg="none"
-          rightIcon={
-            show ? (
-              <ViewIcon color="purple.500" fontSize="xl" />
-            ) : (
-              <ViewOffIcon color="purple.500" fontSize="xl" />
-            )
-          }
-          iconSpacing={0}
-          onClick={() => setShow(!show)}
-          _hover={{ bg: 'none' }}
-        />
-      </InputRightElement>
-    </InputGroup>
+    <Controller
+      control={control}
+      name="password"
+      render={({
+        field: { value, onChange, onBlur },
+        fieldState: { error },
+      }) => (
+        <InputGroup>
+          <Input
+            type={show ? 'text' : 'password'}
+            value={value || ''}
+            onChange={onChange}
+            onBlur={onBlur}
+            autoComplete="current-password"
+            {...rest}
+          />
+          <InputRightElement>
+            <Button
+              bg="none"
+              rightIcon={
+                show ? (
+                  <ViewIcon
+                    color={error ? 'red.300' : 'purple.500'}
+                    fontSize="xl"
+                  />
+                ) : (
+                  <ViewOffIcon
+                    color={error ? 'red.300' : 'purple.500'}
+                    fontSize="xl"
+                  />
+                )
+              }
+              iconSpacing={0}
+              onClick={() => setShow(!show)}
+              _hover={{ bg: 'none' }}
+            />
+          </InputRightElement>
+        </InputGroup>
+      )}
+    />
   )
 }
