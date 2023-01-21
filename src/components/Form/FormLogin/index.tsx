@@ -10,7 +10,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 
 import { loginFormSchema } from '@/schemas/loginForm'
-import { LoginFormInputsType } from '@/types'
+import { LoginFormInputsType } from '@/types/loginForm'
 
 import { PasswordInput } from '../PasswordInput'
 import { ButtonAuth } from '../ButtonAuth'
@@ -19,6 +19,7 @@ export const FormLogin = () => {
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors },
   } = useForm<LoginFormInputsType>({
     resolver: yupResolver(loginFormSchema),
@@ -48,17 +49,17 @@ export const FormLogin = () => {
           </FormErrorMessage>
         </FormControl>
         <FormControl isInvalid={!!errors.password}>
-          <FormControl>
-            <FormLabel color="gray.400" htmlFor="password">
-              Senha
-            </FormLabel>
-            <PasswordInput
-              id="password"
-              placeholder="Digite sua senha"
-              focusBorderColor="purple.500"
-              {...register('password')}
-            />
-          </FormControl>
+          <FormLabel color="gray.400" htmlFor="password">
+            Senha
+          </FormLabel>
+          <PasswordInput
+            id="password"
+            placeholder="Digite sua senha"
+            focusBorderColor="purple.500"
+            errorBorderColor="red.300"
+            control={control}
+          />
+
           <FormErrorMessage color="red.300">
             {errors.password && errors.password.message}
           </FormErrorMessage>
