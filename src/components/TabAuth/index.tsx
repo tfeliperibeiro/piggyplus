@@ -21,8 +21,9 @@ export const TabAuth = () => {
       isFitted
       variant="solid-rounded"
       colorScheme="purple"
-      w="sm"
-      h="lg"
+      w={{ sm: 'full', xl: 'md' }}
+      h={{ xl: 'lg' }}
+      p={{ sm: '4', xl: '0' }}
     >
       <TabList>
         <Tab>Entrar</Tab>
@@ -31,7 +32,13 @@ export const TabAuth = () => {
       <TabPanels>
         <TabPanel>
           <ScaleFade in initialScale={0.9}>
-            <Flex align="center" w="full" justify="center" mt="8" mb="8">
+            <Flex
+              w={{ sm: 'full' }}
+              align={{ sm: 'center' }}
+              justify={{ sm: 'center' }}
+              mt={{ sm: '8' }}
+              mb={{ sm: '8' }}
+            >
               <Button
                 leftIcon={<FcGoogle size="1.4rem" />}
                 bgColor="whiteAlpha.900"
@@ -47,7 +54,13 @@ export const TabAuth = () => {
         </TabPanel>
         <TabPanel>
           <ScaleFade in initialScale={0.9}>
-            <Flex align="center" w="full" justify="center" mt="8" mb="8">
+            <Flex
+              align="center"
+              w="full"
+              justify="center"
+              mt={{ sm: '8' }}
+              mb={{ sm: '8' }}
+            >
               <Button
                 leftIcon={<FcGoogle size="1.4rem" />}
                 bgColor="whiteAlpha.900"
