@@ -32,47 +32,47 @@ export const FormRegistration = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <Stack spacing={4}>
         <FormControl isInvalid={!!errors.name}>
-          <FormLabel color="gray.400" htmlFor="name">
+          <FormLabel color="text.primary.400" htmlFor="name">
             Nome
           </FormLabel>
           <Input
             {...register('name')}
             id="name"
             placeholder="Digite seu nome"
-            focusBorderColor="purple.500"
-            errorBorderColor="red.300"
+            focusBorderColor="primary.500"
+            errorBorderColor="error.primary"
           />
-          <FormErrorMessage color="red.300">
+          <FormErrorMessage color="error.primary">
             {errors.name && errors.name.message}
           </FormErrorMessage>
         </FormControl>
         <FormControl isInvalid={!!errors.email}>
-          <FormLabel color="gray.400" htmlFor="email">
+          <FormLabel color="text.primary.400" htmlFor="email">
             Email
           </FormLabel>
           <Input
             {...register('email')}
             id="email"
             placeholder="Digite seu e-mail"
-            focusBorderColor="purple.500"
-            errorBorderColor="red.300"
+            focusBorderColor="primary.500"
+            errorBorderColor="error.primary"
           />
-          <FormErrorMessage color="red.300">
+          <FormErrorMessage color="error.primary">
             {errors.email && errors.email.message}
           </FormErrorMessage>
         </FormControl>
         <FormControl isInvalid={!!errors.password}>
-          <FormLabel color="gray.400" htmlFor="password">
+          <FormLabel color="text.primary.400" htmlFor="password">
             Senha
           </FormLabel>
           <PasswordInput
             id="password"
             placeholder="Digite sua senha"
-            focusBorderColor="purple.500"
-            errorBorderColor="red.300"
+            focusBorderColor="primary.500"
+            errorBorderColor="error.primary"
             control={control}
           />
-          <FormErrorMessage color="red.300">
+          <FormErrorMessage color="error.primary">
             {errors.password && errors.password.message}
           </FormErrorMessage>
         </FormControl>

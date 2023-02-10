@@ -9,32 +9,60 @@ export default function Login() {
   return (
     <>
       <Flex
-        w={{ sm: 'full', xl: '5xl' }}
+        w={{ base: 'full', sm: 'full', md: 'full', lg: 'full', xl: '5xl' }}
         m={{ xl: '0 auto' }}
-        h={{ sm: '100vh' }}
-        alignItems={{ sm: 'center' }}
-        justifyContent={{ sm: 'space-evenly', xl: 'space-between' }}
-        flexDir={{ sm: 'column', xl: 'row' }}
+        h={{ base: '100vh', sm: '100vh' }}
+        alignItems={{ base: 'center', sm: 'center' }}
+        justifyContent={{
+          base: 'space-evenly',
+          sm: 'space-evenly',
+          xl: 'space-between',
+        }}
+        flexDir={{
+          base: 'column',
+          sm: 'column',
+          md: 'row',
+          lg: 'row',
+          xl: 'row',
+        }}
       >
         <Flex
-          w={{ sm: 'full', xl: 'lg' }}
-          h={{ xl: 'lg' }}
-          align={{ xl: 'center' }}
-          flexDir={{ xl: 'column' }}
+          w={{ base: 'full', sm: 'md', md: 'md', lg: 'lg', xl: 'lg' }}
+          h={{ md: 'lg', lg: 'lg', xl: 'lg' }}
+          align={{ md: 'center', lg: 'center', xl: 'center' }}
+          flexDir={{ md: 'column', lg: 'column', xl: 'column' }}
         >
           <Text
-            fontSize={{ sm: '2xl', xl: '3xl' }}
-            textAlign={{ sm: 'center' }}
+            fontSize={{
+              base: '2xl',
+              sm: '2xl',
+              md: '3xl',
+              lg: '3xl',
+              xl: '3xl',
+            }}
+            textAlign={'center'}
             fontWeight="black"
           >
             Nunca foi tão{' '}
-            <Text as="span" color="purple.500">
+            <Text as="span" color="primary.500">
               simples{' '}
             </Text>
             organizar suas finanças.
           </Text>
-          <Box display={{ sm: 'none', xl: 'initial' }}>
-            <Image src={FinanceImage} alt="teste" width={400} />
+          <Box
+            display={{
+              base: 'none',
+              sm: 'none',
+              md: 'initial',
+              lg: 'initial',
+              xl: 'initial',
+            }}
+          >
+            <Image
+              src={FinanceImage}
+              alt="Imagem de uma mão segurando moedas"
+              width={400}
+            />
           </Box>
         </Flex>
         <TabAuth />

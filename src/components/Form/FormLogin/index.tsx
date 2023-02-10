@@ -4,6 +4,9 @@ import {
   Input,
   Stack,
   FormErrorMessage,
+  Checkbox,
+  Flex,
+  Link,
 } from '@chakra-ui/react'
 import { yupResolver } from '@hookform/resolvers/yup'
 
@@ -33,7 +36,7 @@ export const FormLogin = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <Stack spacing={4}>
         <FormControl isInvalid={!!errors.email}>
-          <FormLabel color="gray.400" htmlFor="email">
+          <FormLabel color="text.primary.400" htmlFor="email">
             Email
           </FormLabel>
           <Input
@@ -41,31 +44,44 @@ export const FormLogin = () => {
             id="email"
             autoComplete="current-email"
             placeholder="Digite seu e-mail"
-            focusBorderColor="purple.500"
-            errorBorderColor="red.300"
+            focusBorderColor="primary.500"
+            errorBorderColor="error.primary"
           />
-          <FormErrorMessage color="red.300">
+          <FormErrorMessage color="error.primary">
             {errors.email && errors.email.message}
           </FormErrorMessage>
         </FormControl>
         <FormControl isInvalid={!!errors.password}>
-          <FormLabel color="gray.400" htmlFor="password">
+          <FormLabel color="text.primary.400" htmlFor="password">
             Senha
           </FormLabel>
           <PasswordInput
             id="password"
             placeholder="Digite sua senha"
-            focusBorderColor="purple.500"
-            errorBorderColor="red.300"
+            focusBorderColor="primary.500"
+            errorBorderColor="error.primary"
             control={control}
           />
 
-          <FormErrorMessage color="red.300">
+          <FormErrorMessage color="error.primary">
             {errors.password && errors.password.message}
           </FormErrorMessage>
         </FormControl>
       </Stack>
-      <ButtonAuth text="Entrar" />
+      <Flex mt="8" justify={'center'}>
+        <Checkbox colorScheme="purple" color="text.primary.500">
+          Mantenha-me conectado.
+        </Checkbox>
+      </Flex>
+      <ButtonAuth text="Entrar" mt={'4'} />
+      <Flex
+        justify={'center'}
+        mt="4"
+        color={'text.primary.400'}
+        _hover={{ color: 'primary.500' }}
+      >
+        <Link>Esqueceu sua senha?</Link>
+      </Flex>
     </form>
   )
 }

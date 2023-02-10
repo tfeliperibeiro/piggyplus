@@ -21,9 +21,9 @@ export const TabAuth = () => {
       isFitted
       variant="solid-rounded"
       colorScheme="purple"
-      w={{ sm: 'full', xl: 'md' }}
-      h={{ xl: 'lg' }}
-      p={{ sm: '4', xl: '0' }}
+      w={{ base: 'full', sm: 'md', md: 'md', lg: 'md', xl: 'md' }}
+      h={'lg'}
+      paddingInline={{ base: '4', sm: '0', md: '4', lg: '0', xl: '0' }}
     >
       <TabList>
         <Tab>Entrar</Tab>
@@ -33,17 +33,17 @@ export const TabAuth = () => {
         <TabPanel>
           <ScaleFade in initialScale={0.9}>
             <Flex
-              w={{ sm: 'full' }}
-              align={{ sm: 'center' }}
-              justify={{ sm: 'center' }}
-              mt={{ sm: '8' }}
-              mb={{ sm: '8' }}
+              w={{ base: 'full', sm: 'full' }}
+              align={{ base: 'center', sm: 'center' }}
+              justify={{ base: 'center', sm: 'center' }}
+              mt={'8'}
+              mb={'8'}
             >
               <Button
                 leftIcon={<FcGoogle size="1.4rem" />}
-                bgColor="whiteAlpha.900"
+                bgColor="text.light.900"
                 boxShadow="md"
-                color="gray.600"
+                color="text.primary.500"
                 _hover={{ boxShadow: 'lg' }}
               >
                 Entrar com o Google
@@ -54,18 +54,12 @@ export const TabAuth = () => {
         </TabPanel>
         <TabPanel>
           <ScaleFade in initialScale={0.9}>
-            <Flex
-              align="center"
-              w="full"
-              justify="center"
-              mt={{ sm: '8' }}
-              mb={{ sm: '8' }}
-            >
+            <Flex align="center" w="full" justify="center" mt={'8'} mb={'8'}>
               <Button
                 leftIcon={<FcGoogle size="1.4rem" />}
-                bgColor="whiteAlpha.900"
+                bgColor="text.light.900"
                 boxShadow="md"
-                color="gray.600"
+                color="text.primary.500"
                 _hover={{ boxShadow: 'lg' }}
               >
                 Cadastrar-se com o Google
