@@ -40,12 +40,12 @@ export const PasswordInput = ({ control, ...rest }: PasswordInputProps) => {
               rightIcon={
                 show ? (
                   <ViewIcon
-                    color={error ? 'red.300' : 'purple.500'}
+                    color={error ? 'error.primary' : 'primary.500'}
                     fontSize="xl"
                   />
                 ) : (
                   <ViewOffIcon
-                    color={error ? 'red.300' : 'purple.500'}
+                    color={error ? 'error.primary' : 'primary.500'}
                     fontSize="xl"
                   />
                 )
