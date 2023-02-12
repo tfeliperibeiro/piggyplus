@@ -1,7 +1,9 @@
+import { GetServerSideProps } from 'next'
+import Image from 'next/image'
+import { getSession } from 'next-auth/react'
 import { Box, Flex, Text } from '@chakra-ui/react'
 
-import { TabAuth } from '@/components/TabAuth'
-import Image from 'next/image'
+import { TabAuth } from '@/components/Tabs/TabAuth'
 
 import FinanceImage from '../../../public/assets/finance.png'
 
@@ -69,4 +71,21 @@ export default function Login() {
       </Flex>
     </>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const session = await getSession(context)
+
+  if (session) {
+    return {
+      redirect: {
+        destination: '/dashboard',
+        permanent: false,
+      },
+    }
+  }
+
+  return {
+    props: {},
+  }
 }

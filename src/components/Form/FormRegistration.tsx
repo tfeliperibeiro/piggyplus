@@ -4,37 +4,48 @@ import {
   Input,
   Stack,
   FormErrorMessage,
-  Checkbox,
-  Flex,
-  Link,
 } from '@chakra-ui/react'
-import { yupResolver } from '@hookform/resolvers/yup'
 
 import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
 
-import { loginFormSchema } from '@/schemas/loginForm'
-import { LoginFormInputsType } from '@/types/loginForm'
+import { registrationFormSchema } from '@/schemas/registrationForm'
+import { RegistrationFormType } from '@/types/registrationForm'
+import { PasswordInput } from './PasswordInput'
+import { AuthButton } from '../Buttons/AuthButton'
 
-import { PasswordInput } from '../PasswordInput'
-import { ButtonAuth } from '../ButtonAuth'
-
-export const FormLogin = () => {
+export const FormRegistration = () => {
   const {
     register,
     handleSubmit,
     control,
     formState: { errors },
-  } = useForm<LoginFormInputsType>({
-    resolver: yupResolver(loginFormSchema),
+  } = useForm<RegistrationFormType>({
+    resolver: yupResolver(registrationFormSchema),
   })
 
-  const onSubmit = (data: LoginFormInputsType) => {
+  const onSubmit = (data: RegistrationFormType) => {
     console.log(data)
   }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Stack spacing={4}>
+        <FormControl isInvalid={!!errors.name}>
+          <FormLabel color="text.primary.400" htmlFor="name">
+            Nome
+          </FormLabel>
+          <Input
+            {...register('name')}
+            id="name"
+            placeholder="Digite seu nome"
+            focusBorderColor="primary.500"
+            errorBorderColor="error.primary"
+          />
+          <FormErrorMessage color="error.primary">
+            {errors.name && errors.name.message}
+          </FormErrorMessage>
+        </FormControl>
         <FormControl isInvalid={!!errors.email}>
           <FormLabel color="text.primary.400" htmlFor="email">
             Email
@@ -42,7 +53,6 @@ export const FormLogin = () => {
           <Input
             {...register('email')}
             id="email"
-            autoComplete="current-email"
             placeholder="Digite seu e-mail"
             focusBorderColor="primary.500"
             errorBorderColor="error.primary"
@@ -62,26 +72,12 @@ export const FormLogin = () => {
             errorBorderColor="error.primary"
             control={control}
           />
-
           <FormErrorMessage color="error.primary">
             {errors.password && errors.password.message}
           </FormErrorMessage>
         </FormControl>
       </Stack>
-      <Flex mt="8" justify={'center'}>
-        <Checkbox colorScheme="purple" color="text.primary.500">
-          Mantenha-me conectado.
-        </Checkbox>
-      </Flex>
-      <ButtonAuth text="Entrar" mt={'4'} />
-      <Flex
-        justify={'center'}
-        mt="4"
-        color={'text.primary.400'}
-        _hover={{ color: 'primary.500' }}
-      >
-        <Link>Esqueceu sua senha?</Link>
-      </Flex>
+      <AuthButton text="Cadastrar" />
     </form>
   )
 }
