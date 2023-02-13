@@ -14,11 +14,15 @@ export const globalTheme = extendTheme({
         300: '#CBD5E0',
         400: '#A0AEC0',
         500: '#718096',
+        600: '#4A5568',
         800: '#1A202C',
       },
       light: {
         900: 'RGBA(255, 255, 255, 0.92)',
       },
+    },
+    card: {
+      50: '#F7FAFC',
     },
     sucess: {
       primary: '#68D391',

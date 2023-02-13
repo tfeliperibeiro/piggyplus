@@ -6,7 +6,7 @@ type ButtonAuthProps = ButtonProps & {
   text: string
 }
 
-export const ButtonAuth = ({ text, ...rest }: ButtonAuthProps) => {
+export const AuthButton = ({ text, ...rest }: ButtonAuthProps) => {
   return (
     <Button
       bgGradient="linear(to-r, primary.500, primary.800)"
