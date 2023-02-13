@@ -10,7 +10,7 @@ import {
 import { FormLogin } from '../Form/FormLogin'
 import { FormRegistration } from '../Form/FormRegistration'
 
-import { AuthButtonGoogle } from '../Buttons/AuthButtonGoogle'
+import { AuthGoogleButton } from '../Buttons/AuthGoogleButton'
 
 export const TabAuth = () => {
   return (
@@ -30,13 +30,13 @@ export const TabAuth = () => {
       <TabPanels>
         <TabPanel>
           <ScaleFade in initialScale={0.9}>
-            <AuthButtonGoogle text="Entrar com Google" />
+            <AuthGoogleButton text="Entrar com Google" />
             <FormLogin />
           </ScaleFade>
         </TabPanel>
         <TabPanel>
           <ScaleFade in initialScale={0.9}>
-            <AuthButtonGoogle text="Cadastrar-se com Google" />
+            <AuthGoogleButton text="Cadastrar-se com Google" />
             <FormRegistration />
           </ScaleFade>
         </TabPanel>

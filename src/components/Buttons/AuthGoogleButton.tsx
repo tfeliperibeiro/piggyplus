@@ -7,7 +7,7 @@ type AuthButtonGoogleProps = FlexProps & {
   text: string
 }
 
-export const AuthButtonGoogle = ({ text, ...rest }: AuthButtonGoogleProps) => {
+export const AuthGoogleButton = ({ text, ...rest }: AuthButtonGoogleProps) => {
   return (
     <Flex
       w={{ base: 'full', sm: 'full' }}
