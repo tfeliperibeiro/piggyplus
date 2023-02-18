@@ -9,7 +9,7 @@ import {
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 
-import { registrationFormSchema } from '@/schemas/registrationForm'
+import { registerFormSchema } from '@/schemas/registerForm'
 import { RegistrationFormType } from '@/types/registrationForm'
 import { PasswordInput } from './PasswordInput'
 import { AuthButton } from '../Buttons/AuthButton'
@@ -21,7 +21,7 @@ export const FormRegistration = () => {
     control,
     formState: { errors },
   } = useForm<RegistrationFormType>({
-    resolver: yupResolver(registrationFormSchema),
+    resolver: yupResolver(registerFormSchema),
   })
 
   const onSubmit = (data: RegistrationFormType) => {
