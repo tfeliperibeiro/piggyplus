@@ -7,8 +7,8 @@ import {
   Tabs,
 } from '@chakra-ui/react'
 
-import { FormLogin } from '../Form/FormLogin'
-import { FormRegistration } from '../Form/FormRegistration'
+import { FormLogin } from '../Forms/FormLogin'
+import { RegisterForm } from '../Forms/RegisterForm'
 
 import { AuthGoogleButton } from '../Buttons/AuthGoogleButton'
 
@@ -37,7 +37,7 @@ export const TabAuth = () => {
         <TabPanel>
           <ScaleFade in initialScale={0.9}>
             <AuthGoogleButton text="Cadastrar-se com Google" />
-            <FormRegistration />
+            <RegisterForm />
           </ScaleFade>
         </TabPanel>
       </TabPanels>

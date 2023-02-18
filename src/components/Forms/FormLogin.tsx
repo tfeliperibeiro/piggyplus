@@ -12,10 +12,10 @@ import { yupResolver } from '@hookform/resolvers/yup'
 
 import { useForm } from 'react-hook-form'
 
-import { loginFormSchema } from '@/schemas/loginForm'
-import { LoginFormInputsType } from '@/types/loginForm'
+import { loginFormSchema } from './schemas/loginForm'
+import { FormLoginType } from './types/formLogin'
 
-import { PasswordInput } from './PasswordInput'
+import { PasswordInput } from './components/PasswordInput'
 import { AuthButton } from '../Buttons/AuthButton'
 
 export const FormLogin = () => {
@@ -24,11 +24,11 @@ export const FormLogin = () => {
     handleSubmit,
     control,
     formState: { errors },
-  } = useForm<LoginFormInputsType>({
+  } = useForm<FormLoginType>({
     resolver: yupResolver(loginFormSchema),
   })
 
-  const onSubmit = (data: LoginFormInputsType) => {
+  const onSubmit = (data: FormLoginType) => {
     console.log(data)
   }
 

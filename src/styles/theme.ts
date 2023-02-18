@@ -21,9 +21,6 @@ export const globalTheme = extendTheme({
         900: 'RGBA(255, 255, 255, 0.92)',
       },
     },
-    card: {
-      50: '#F7FAFC',
-    },
     sucess: {
       primary: '#68D391',
     },
