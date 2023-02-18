@@ -9,23 +9,25 @@ import {
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 
-import { registerFormSchema } from '@/schemas/registerForm'
-import { RegistrationFormType } from '@/types/registrationForm'
-import { PasswordInput } from './PasswordInput'
+import { registerFormSchema } from './schemas/registerForm'
+import { RegisterFormType } from './types/registerForm'
+import { PasswordInput } from './components/PasswordInput'
 import { AuthButton } from '../Buttons/AuthButton'
+import { useCaseRegister } from './useCases/useCaseRegister'
 
-export const FormRegistration = () => {
+export const RegisterForm = () => {
+  const { regiterUser } = useCaseRegister()
   const {
     register,
     handleSubmit,
     control,
     formState: { errors },
-  } = useForm<RegistrationFormType>({
+  } = useForm<RegisterFormType>({
     resolver: yupResolver(registerFormSchema),
   })
 
-  const onSubmit = (data: RegistrationFormType) => {
-    console.log(data)
+  const onSubmit = (data: RegisterFormType) => {
+    regiterUser(data)
   }
 
   return (
@@ -33,7 +35,7 @@ export const FormRegistration = () => {
       <Stack spacing={4}>
         <FormControl isInvalid={!!errors.name}>
           <FormLabel color="text.primary.400" htmlFor="name">
-            Nome
+            Como devemos te chamar?
           </FormLabel>
           <Input
             {...register('name')}
