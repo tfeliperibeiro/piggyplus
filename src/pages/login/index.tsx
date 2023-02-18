@@ -1,9 +1,6 @@
-import Image from 'next/image'
-
-import { Box, Flex, Text } from '@chakra-ui/react'
+import { Flex, Text } from '@chakra-ui/react'
 
 import { TabAuth } from '@/components/Tabs/TabAuth'
-import FinanceImage from '../../../public/assets/finance.png'
 
 export default function Login() {
   return (
@@ -49,21 +46,6 @@ export default function Login() {
             </Text>
             organizar suas finanças.
           </Text>
-          <Box
-            display={{
-              base: 'none',
-              sm: 'none',
-              md: 'initial',
-              lg: 'initial',
-              xl: 'initial',
-            }}
-          >
-            <Image
-              src={FinanceImage}
-              alt="Imagem de uma mão segurando moedas"
-              width={400}
-            />
-          </Box>
         </Flex>
         <TabAuth />
       </Flex>

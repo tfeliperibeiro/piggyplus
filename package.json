@@ -21,6 +21,7 @@
     "eslint": "8.31.0",
     "eslint-config-next": "13.1.2",
     "framer-motion": "^6",
+    "jsonwebtoken": "^9.0.0",
     "mongodb": "^5.0.1",
     "next": "13.1.2",
     "next-auth": "^4.19.2",
@@ -32,6 +33,7 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.1",
     "@types/mongodb": "^4.0.7",
     "@typescript-eslint/eslint-plugin": "^5.48.1",
     "eslint-config-prettier": "^8.6.0",
