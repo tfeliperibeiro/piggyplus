@@ -1,10 +1,10 @@
-import { Button, ButtonProps } from '@chakra-ui/react'
+import { Button, ButtonProps } from '@chakra-ui/react';
 
-import { ArrowForwardIcon } from '@chakra-ui/icons'
+import { ArrowForwardIcon } from '@chakra-ui/icons';
 
 type ButtonAuthProps = ButtonProps & {
-  text: string
-}
+  text: string;
+};
 
 export const AuthButton = ({ text, ...rest }: ButtonAuthProps) => {
   return (
@@ -22,5 +22,5 @@ export const AuthButton = ({ text, ...rest }: ButtonAuthProps) => {
     >
       {text}
     </Button>
-  )
-}
+  );
+};

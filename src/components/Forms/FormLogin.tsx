@@ -7,18 +7,20 @@ import {
   Checkbox,
   Flex,
   Link,
-} from '@chakra-ui/react'
-import { yupResolver } from '@hookform/resolvers/yup'
+} from '@chakra-ui/react';
+import { yupResolver } from '@hookform/resolvers/yup';
 
-import { useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form';
 
-import { loginFormSchema } from './schemas/loginForm'
-import { FormLoginType } from './types/formLogin'
+import { loginFormSchema } from './schemas/loginForm';
+import { FormLoginType } from './types/formLogin';
 
-import { PasswordInput } from './components/PasswordInput'
-import { AuthButton } from '../Buttons/AuthButton'
+import { PasswordInput } from './components/PasswordInput';
+import { AuthButton } from '../Buttons/AuthButton';
+import { useCaseLogin } from './useCases/useCaseLogin';
 
 export const FormLogin = () => {
+  const { loginUser, isLoading } = useCaseLogin();
   const {
     register,
     handleSubmit,
@@ -26,11 +28,11 @@ export const FormLogin = () => {
     formState: { errors },
   } = useForm<FormLoginType>({
     resolver: yupResolver(loginFormSchema),
-  })
+  });
 
   const onSubmit = (data: FormLoginType) => {
-    console.log(data)
-  }
+    loginUser(data);
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -73,7 +75,7 @@ export const FormLogin = () => {
           Mantenha-me conectado.
         </Checkbox>
       </Flex>
-      <AuthButton text="Entrar" mt={'4'} />
+      <AuthButton text="Entrar" mt={'4'} isLoading={isLoading} />
       <Flex
         justify={'center'}
         mt="4"
@@ -83,5 +85,5 @@ export const FormLogin = () => {
         <Link>Esqueceu sua senha?</Link>
       </Flex>
     </form>
-  )
-}
+  );
+};
