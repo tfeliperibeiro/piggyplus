@@ -4,7 +4,6 @@ import {
   Input,
   Stack,
   FormErrorMessage,
-  Checkbox,
   Flex,
   Link,
 } from '@chakra-ui/react';
@@ -70,12 +69,7 @@ export const FormLogin = () => {
           </FormErrorMessage>
         </FormControl>
       </Stack>
-      <Flex mt="8" justify={'center'}>
-        <Checkbox colorScheme="purple" color="text.primary.500">
-          Mantenha-me conectado.
-        </Checkbox>
-      </Flex>
-      <AuthButton text="Entrar" mt={'4'} isLoading={isLoading} />
+      <AuthButton text="Entrar" mt={'8'} isLoading={isLoading} />
       <Flex
         justify={'center'}
         mt="4"

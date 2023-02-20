@@ -10,6 +10,6 @@ export const loginFormSchema = yup
       .string()
       .min(6, 'Deve ter no mínimo 6 caracteres.')
       .max(20, 'Sua senha deve ter no máximo 20 caracteres.')
-      .required('Este campo é obrigatório.'),
+      .required('Campo senha é obrigatório.'),
   })
   .noUnknown(true);

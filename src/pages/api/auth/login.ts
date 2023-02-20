@@ -1,15 +1,14 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import { ValidationError } from 'yup';
 import bcrypt from 'bcrypt';
 
-import { ValidationError } from 'yup';
-
-import { SignJWT } from 'jose';
-
 import { connectToDatabase } from '@/lib/database';
+
+import { sign } from '@/lib/jwt';
 import { loginFormSchema } from '@/components/Forms/schemas/loginForm';
 import { validateSchema } from '@/middlewares/validateSchema';
 
-const KEY_SECRET = process.env.KEY_SECRET as string;
+const JWT_SECRET = process.env.KEY_SECRET as string;
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
@@ -36,18 +35,10 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
           .json({ message: 'E-mail ou senha não conferem.' });
       }
 
-      const iat = Math.floor(Date.now() / 1000);
-      const expirationTime = iat + 60 * 60;
-
-      const token = await new SignJWT({
-        name: userAlreadyExists.name,
-        email: userAlreadyExists.email,
-      })
-        .setProtectedHeader({ alg: 'HS256', typ: 'JWT' })
-        .setExpirationTime(expirationTime)
-        .setIssuedAt(iat)
-        .setNotBefore(iat)
-        .sign(new TextEncoder().encode(KEY_SECRET));
+      const token = await sign(
+        { name: userAlreadyExists.name, email: userAlreadyExists.email },
+        JWT_SECRET
+      );
 
       return res.status(200).json({ token });
     } catch (error) {
