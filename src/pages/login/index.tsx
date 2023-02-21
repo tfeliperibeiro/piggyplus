@@ -1,5 +1,4 @@
 import { Flex, Text } from '@chakra-ui/react';
-
 import { TabAuth } from '@/components/Tabs/TabAuth';
 
 export default function Login() {

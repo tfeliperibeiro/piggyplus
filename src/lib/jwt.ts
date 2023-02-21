@@ -22,3 +22,12 @@ export async function verify(
   const { payload } = await jwtVerify(token, new TextEncoder().encode(secret));
   return payload;
 }
+
+export const jwtParser = (token: string | undefined) => {
+  if (!token) return;
+  const { name, email } = JSON.parse(
+    Buffer.from(token.split('.')[1], 'base64').toString()
+  );
+
+  return { name, email };
+};

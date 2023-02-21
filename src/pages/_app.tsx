@@ -8,7 +8,6 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { globalTheme } from '@/styles/theme';
-import { UserContextProvider } from '@/context/user';
 
 const queryClient = new QueryClient();
 
@@ -21,9 +20,7 @@ export default function App({
       <ReactQueryDevtools initialIsOpen={false} />
       <ChakraProvider theme={globalTheme}>
         <SessionProvider session={session}>
-          <UserContextProvider>
-            <Component {...pageProps} />
-          </UserContextProvider>
+          <Component {...pageProps} />
           <ToastContainer
             position="bottom-right"
             autoClose={2000}

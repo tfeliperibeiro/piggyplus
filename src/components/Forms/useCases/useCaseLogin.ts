@@ -15,9 +15,8 @@ export const useCaseLogin = () => {
   const { mutate: loginUser, isLoading } = useMutation({
     mutationFn: login,
     onSuccess: (data) => {
-      cookie.set('@piggyplus', data.token);
+      cookie.set('@piggyplus_token', data.token);
       router.push('/dashboard');
-      toast.success('Login feito com sucesso.');
     },
     onError: (error: AxiosError<ErrorType>) => {
       toast.error(error.response?.data.message);

@@ -23,7 +23,7 @@ export const AuthGoogleButton = ({ text, ...rest }: AuthButtonGoogleProps) => {
         boxShadow="md"
         color="text.primary.500"
         _hover={{ boxShadow: 'lg' }}
-        onClick={() => signIn('google')}
+        onClick={() => signIn('google', { callbackUrl: '/dashboard' })}
       >
         {text}
       </Button>

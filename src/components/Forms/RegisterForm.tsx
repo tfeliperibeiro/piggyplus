@@ -16,7 +16,7 @@ import { AuthButton } from '../Buttons/AuthButton';
 import { useCaseRegister } from './useCases/useCaseRegister';
 
 export const RegisterForm = () => {
-  const { regiterUser } = useCaseRegister();
+  const { regiterUser, isLoading } = useCaseRegister();
   const {
     register,
     handleSubmit,
@@ -79,7 +79,7 @@ export const RegisterForm = () => {
           </FormErrorMessage>
         </FormControl>
       </Stack>
-      <AuthButton text="Cadastrar" />
+      <AuthButton text="Cadastrar" isLoading={isLoading} />
     </form>
   );
 };
