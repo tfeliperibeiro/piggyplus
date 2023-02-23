@@ -8,6 +8,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { globalTheme } from '@/styles/theme';
+import Head from 'next/head';
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,9 @@ export default function App({
       <ReactQueryDevtools initialIsOpen={false} />
       <ChakraProvider theme={globalTheme}>
         <SessionProvider session={session}>
+          <Head>
+            <title>piggyplus</title>
+          </Head>
           <Component {...pageProps} />
           <ToastContainer
             position="bottom-right"

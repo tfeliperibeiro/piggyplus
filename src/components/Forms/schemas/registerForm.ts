@@ -10,7 +10,11 @@ export const registerFormSchema = yup
     email: yup
       .string()
       .email('E-mail inválido.')
-      .required('E-mail é obrigatório.'),
+      .required('E-mail é obrigatório.')
+      .matches(
+        /^[^@]+@(?!gmail\.com)[^@]+\.[^@]+$/,
+        'Cadastre-se com Google no botão acima.'
+      ),
     password: yup
       .string()
       .min(6, 'Sua senha deve ter no mínimo 6 caracteres.')

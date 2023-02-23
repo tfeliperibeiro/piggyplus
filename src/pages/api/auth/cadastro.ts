@@ -1,10 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { ValidationError } from 'yup';
 import bcrypt from 'bcrypt';
 
 import { connectToDatabase } from '@/lib/database';
 import { registerFormSchema } from '@/components/Forms/schemas/registerForm';
 import { validateSchema } from '@/middlewares/validateSchema';
-import { ValidationError } from 'yup';
 
 const saltRounds = 10;
 
@@ -21,6 +21,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       }
 
       const passwordHash = await bcrypt.hash(password, saltRounds);
+
       const newUser = {
         name,
         email,

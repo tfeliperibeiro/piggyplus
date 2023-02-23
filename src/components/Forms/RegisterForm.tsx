@@ -55,6 +55,7 @@ export const RegisterForm = () => {
           <Input
             {...register('email')}
             id="email"
+            autoComplete="email"
             placeholder="Digite seu e-mail"
             focusBorderColor="primary.500"
             errorBorderColor="error.primary"
