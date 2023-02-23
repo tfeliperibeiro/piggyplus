@@ -4,19 +4,19 @@ import {
   Input,
   Stack,
   FormErrorMessage,
-} from '@chakra-ui/react'
+} from '@chakra-ui/react';
 
-import { useForm } from 'react-hook-form'
-import { yupResolver } from '@hookform/resolvers/yup'
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 
-import { registerFormSchema } from './schemas/registerForm'
-import { RegisterFormType } from './types/registerForm'
-import { PasswordInput } from './components/PasswordInput'
-import { AuthButton } from '../Buttons/AuthButton'
-import { useCaseRegister } from './useCases/useCaseRegister'
+import { registerFormSchema } from './schemas/registerForm';
+import { RegisterFormType } from './types/registerForm';
+import { PasswordInput } from './components/PasswordInput';
+import { AuthButton } from '../Buttons/AuthButton';
+import { useCaseRegister } from './useCases/useCaseRegister';
 
 export const RegisterForm = () => {
-  const { regiterUser } = useCaseRegister()
+  const { regiterUser, isLoading } = useCaseRegister();
   const {
     register,
     handleSubmit,
@@ -24,11 +24,11 @@ export const RegisterForm = () => {
     formState: { errors },
   } = useForm<RegisterFormType>({
     resolver: yupResolver(registerFormSchema),
-  })
+  });
 
   const onSubmit = (data: RegisterFormType) => {
-    regiterUser(data)
-  }
+    regiterUser(data);
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -55,6 +55,7 @@ export const RegisterForm = () => {
           <Input
             {...register('email')}
             id="email"
+            autoComplete="email"
             placeholder="Digite seu e-mail"
             focusBorderColor="primary.500"
             errorBorderColor="error.primary"
@@ -79,7 +80,7 @@ export const RegisterForm = () => {
           </FormErrorMessage>
         </FormControl>
       </Stack>
-      <AuthButton text="Cadastrar" />
+      <AuthButton text="Cadastrar" isLoading={isLoading} />
     </form>
-  )
-}
+  );
+};

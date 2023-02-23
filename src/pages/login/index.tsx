@@ -1,6 +1,5 @@
-import { Flex, Text } from '@chakra-ui/react'
-
-import { TabAuth } from '@/components/Tabs/TabAuth'
+import { Flex, Text } from '@chakra-ui/react';
+import { TabAuth } from '@/components/Tabs/TabAuth';
 
 export default function Login() {
   return (
@@ -50,5 +49,5 @@ export default function Login() {
         <TabAuth />
       </Flex>
     </>
-  )
+  );
 }

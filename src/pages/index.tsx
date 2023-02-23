@@ -1,10 +1,10 @@
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 
-import { ArrowForwardIcon } from '@chakra-ui/icons'
-import { Flex, Text, Button } from '@chakra-ui/react'
+import { ArrowForwardIcon } from '@chakra-ui/icons';
+import { Flex, Text, Button } from '@chakra-ui/react';
 
 export default function Home() {
-  const router = useRouter()
+  const router = useRouter();
   return (
     <Flex
       flexDir="column"
@@ -31,5 +31,5 @@ export default function Home() {
         Ir para Login
       </Button>
     </Flex>
-  )
+  );
 }

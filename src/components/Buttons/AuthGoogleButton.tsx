@@ -1,11 +1,11 @@
-import { Button, FlexProps, Flex } from '@chakra-ui/react'
-import { FcGoogle } from 'react-icons/fc'
+import { Button, FlexProps, Flex } from '@chakra-ui/react';
+import { FcGoogle } from 'react-icons/fc';
 
-import { signIn } from 'next-auth/react'
+import { signIn } from 'next-auth/react';
 
 type AuthButtonGoogleProps = FlexProps & {
-  text: string
-}
+  text: string;
+};
 
 export const AuthGoogleButton = ({ text, ...rest }: AuthButtonGoogleProps) => {
   return (
@@ -23,10 +23,10 @@ export const AuthGoogleButton = ({ text, ...rest }: AuthButtonGoogleProps) => {
         boxShadow="md"
         color="text.primary.500"
         _hover={{ boxShadow: 'lg' }}
-        onClick={() => signIn('google')}
+        onClick={() => signIn('google', { callbackUrl: '/dashboard' })}
       >
         {text}
       </Button>
     </Flex>
-  )
-}
+  );
+};

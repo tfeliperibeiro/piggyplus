@@ -4,18 +4,18 @@ import {
   InputGroup,
   InputRightElement,
   InputProps,
-} from '@chakra-ui/react'
+} from '@chakra-ui/react';
 
-import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
-import { useState } from 'react'
-import { Controller } from 'react-hook-form'
+import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
+import { useState } from 'react';
+import { Controller } from 'react-hook-form';
 
 type PasswordInputProps = InputProps & {
-  control: any
-}
+  control: any;
+};
 
 export const PasswordInput = ({ control, ...rest }: PasswordInputProps) => {
-  const [show, setShow] = useState<boolean>(false)
+  const [show, setShow] = useState<boolean>(false);
 
   return (
     <Controller
@@ -58,5 +58,5 @@ export const PasswordInput = ({ control, ...rest }: PasswordInputProps) => {
         </InputGroup>
       )}
     />
-  )
-}
+  );
+};

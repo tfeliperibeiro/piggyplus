@@ -1,8 +1,8 @@
-import { RegisterFormType } from '@/components/Forms/types/registerForm'
-import { api } from '@/lib/api'
+import { RegisterFormType } from '@/components/Forms/types/registerForm';
+import { api } from '@/lib/api';
 
 export const register = async (registerFormData: RegisterFormType) => {
-  const { data } = await api.post('api/cadastro', registerFormData)
+  const { data } = await api.post('api/auth/cadastro', registerFormData);
 
-  return data
-}
+  return data;
+};

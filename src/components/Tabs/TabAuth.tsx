@@ -5,12 +5,12 @@ import {
   TabPanel,
   TabPanels,
   Tabs,
-} from '@chakra-ui/react'
+} from '@chakra-ui/react';
 
-import { FormLogin } from '../Forms/FormLogin'
-import { RegisterForm } from '../Forms/RegisterForm'
+import { FormLogin } from '../Forms/FormLogin';
+import { RegisterForm } from '../Forms/RegisterForm';
 
-import { AuthGoogleButton } from '../Buttons/AuthGoogleButton'
+import { AuthGoogleButton } from '../Buttons/AuthGoogleButton';
 
 export const TabAuth = () => {
   return (
@@ -42,5 +42,5 @@ export const TabAuth = () => {
         </TabPanel>
       </TabPanels>
     </Tabs>
-  )
-}
+  );
+};

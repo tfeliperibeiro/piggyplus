@@ -8,4 +8,4 @@ module.exports = {
 
   '**/*.(md|json)': (filenames) =>
     `yarn prettier --write ${filenames.join(' ')}`,
-}
+};

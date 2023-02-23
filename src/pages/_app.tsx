@@ -1,12 +1,16 @@
-import type { AppProps } from 'next/app'
-import { ChakraProvider } from '@chakra-ui/react'
-import { SessionProvider } from 'next-auth/react'
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import type { AppProps } from 'next/app';
+import { ChakraProvider } from '@chakra-ui/react';
+import { SessionProvider } from 'next-auth/react';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ToastContainer } from 'react-toastify';
 
-import { globalTheme } from '@/styles/theme'
+import 'react-toastify/dist/ReactToastify.css';
 
-const queryClient = new QueryClient()
+import { globalTheme } from '@/styles/theme';
+import Head from 'next/head';
+
+const queryClient = new QueryClient();
 
 export default function App({
   Component,
@@ -17,9 +21,21 @@ export default function App({
       <ReactQueryDevtools initialIsOpen={false} />
       <ChakraProvider theme={globalTheme}>
         <SessionProvider session={session}>
+          <Head>
+            <title>piggyplus</title>
+          </Head>
           <Component {...pageProps} />
+          <ToastContainer
+            position="bottom-right"
+            autoClose={2000}
+            closeOnClick
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+          />
         </SessionProvider>
       </ChakraProvider>
     </QueryClientProvider>
-  )
+  );
 }
